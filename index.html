@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Complete fitness app: workout logger, routine planner, weight tracking, analytics and a HIIT timer with voice coaching.">
+  <meta name="theme-color" content="#1a1a1a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Forge">
+  <meta name="application-name" content="Forge Fitness">
+  <meta name="msapplication-TileColor" content="#ff6b35">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/icon-192.svg">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.svg">
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./gym.css">
+
+  <title>Forge — Workout, HIIT & Progress</title>
+</head>
+<body>
+  <div id="app">
+    <!-- Tab 1: Workout dashboard, routines, logger -->
+    <div id="viewWorkout" class="tab-panel"></div>
+
+    <!-- Tab 2: the original HIIT timer, rendered by app.js exactly as before -->
+    <div id="screenContainer" class="tab-panel"></div>
+
+    <!-- Tab 3: Profile, weight tracking, analytics -->
+    <div id="viewProfile" class="tab-panel"></div>
+
+    <nav class="bottom-nav" role="tablist">
+      <button class="nav-btn" data-tab-btn="workout" role="tab" aria-selected="true">
+        <span class="nav-icon">🏋️</span>
+        <span>Workout</span>
+      </button>
+      <button class="nav-btn" data-tab-btn="hiit" role="tab" aria-selected="false">
+        <span class="nav-icon">⏱️</span>
+        <span>HIIT</span>
+      </button>
+      <button class="nav-btn" data-tab-btn="profile" role="tab" aria-selected="false">
+        <span class="nav-icon">👤</span>
+        <span>Profile</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- HIIT timer modules (unchanged) -->
+  <script src="./storage.js"></script>
+  <script src="./speech.js"></script>
+  <script src="./timer.js"></script>
+  <script src="./app.js"></script>
+
+  <!-- Gym modules -->
+  <script src="./gym-data.js"></script>
+  <script src="./gym-store.js"></script>
+  <script src="./gym-ui.js"></script>
+  <script src="./gym-app.js"></script>
+  <script src="./shell.js"></script>
+
+  <script>
+    // Keep --vh accurate while mobile browser bars show and hide
+    const setViewportHeight = () => {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    };
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+
+    const boot = () => {
+      GymApp.init();
+      Shell.init();
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', boot);
+    } else {
+      boot();
+    }
+  </script>
+</body>
+</html>

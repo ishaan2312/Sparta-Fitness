@@ -1,0 +1,85 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.atom/
+.project
+.classpath
+*.c9/
+*.swp
+*.swo
+*~
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+*.swp
+
+# Node.js (if using build tools)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs (if added later)
+dist/
+build/
+.next/
+out/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Icon conversion temporary files
+*.backup
+*.orig
+
+# Python cache (if using scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Local test files
+test-results/
+coverage/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Misc files
+.sass-cache/
+.jekyll-cache/
+.bundle/
