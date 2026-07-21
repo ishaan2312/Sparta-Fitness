@@ -1,7 +1,7 @@
 // Service Worker for Workout Timer PWA
 // Handles caching and offline functionality
 
-const CACHE_NAME = 'forge-fitness-v8';
+const CACHE_NAME = 'forge-fitness-v9';
 const urlsToCache = [
   './',
   './index.html',
